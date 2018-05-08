@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Show Details</title>
+        <link href="https://fonts.googleapis.com/css?family=Dosis:400,800" rel="stylesheet">
+        <style type="text/css">
+         /* Let's get this party started */
+         ::-webkit-scrollbar {
+             width: 12px;
+         }
+
+         ::-webkit-scrollbar:vertical {
+             width: 0px;
+         }
+
+         /* Track */
+         ::-webkit-scrollbar-track {
+             -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3); 
+             -webkit-border-radius: 10px;
+             border-radius: 10px;
+         }
+
+         /* Handle */
+         ::-webkit-scrollbar-thumb {
+             -webkit-border-radius: 10px;
+             border-radius: 10px;
+             background: rgba(255,0,0,0.8); 
+             -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.5); 
+         }
+         ::-webkit-scrollbar-thumb:window-inactive {
+	     background: rgba(255,0,0,0.4); 
+         }
+
+        </style>
+        <style type="text/css">
+
+         #container {
+             display: flex;
+         }
+
+         #backdrop:before {
+
+             content: "";
+             display:block;
+             position: fixed;
+             top: 0;
+             left: 0;
+             width: 100%;
+             height: 100%;
+             background: rgba(10,10,10, 0.8)
+         }
+
+         #backdrop {
+             position: fixed;
+             top: 0;
+             left: 0;
+             width: 100%;
+             height: 100%;
+             background-image: url("https://socialgeek.co/wp-content/uploads/2016/04/game-of-thrones-fan-art-ertacaltinoz-deviantart.jpg");
+             background-size: cover;
+             z-index: -20;
+             filter: brightness(60%)
+         }
+         #statusbar {
+             display: flex;
+             justify-content: space-between;
+             color: white;
+         }
+         #statusbar .title {
+             font-family: 'Dosis', sans-serif;
+             font-weight: bolder;
+             font-size: 1.5vw;
+             padding: 1vw;
+         }
+
+         #statusbar div {
+             padding: 2vh 2vw 0 2vw;
+         }
+
+         #cover {
+             padding: 4vw;
+             filter: drop-shadow(0px 0px 2px)
+         }
+
+         #cover img {
+             width: 25vw;
+             border-radius: 10px;
+             margin-bottom: -10vw;
+         }
+
+         #info {
+             padding: 4vw 0 0vw 4vw;
+             color: white;
+         }
+
+         h1 {
+             font-family: 'Dosis', sans-serif;
+             font-weight: bolder;
+             font-size: 4vw;
+             margin: 4vw auto 1vw;
+
+         }
+
+         #infobar {
+             font-family: 'Dosis', sans-serif;
+             font-weight: 600;
+             color: #888
+         }
+
+         #infobar span:before {
+             content: "·";
+             padding: 1vh;
+         }
+
+         #infobar span:first-of-type:before {
+             content: "";
+         }
+
+         #playbar {
+             display: flex;
+             font-family: 'Dosis', sans-serif;
+         }
+
+         #playbar div {
+             flex-direction: column;
+             display: flex;
+             padding: 2vh;
+             color: #aaa;
+         }
+
+         #playbar div:first-of-type {
+             padding-left: 0;
+             color: white;
+         }
+
+         #playbar button {
+             font-family: 'Dosis', sans-serif;
+             font-weight: bolder;
+             border: 1px solid #aaa;
+             background-color: transparent;
+             color: white;
+             border-radius: 4px;
+             width: 10vw;
+             height: 4.5vw;
+             font-weight: bold;
+         }
+
+         #playbar div:first-of-type button {
+             background-color: #ff1744;
+             border-color: #ff1744;
+         }
+
+         #playbar span {
+             margin: 0.4vw auto;
+         }
+
+         ul {
+             display: flex;
+         }
+
+         li {
+             display: block;
+             padding: 1vw;
+             color: white;
+         }
+
+         li.seen {
+             filter: brightness(0.6) ;
+             color: grey;
+         }
+
+         li.seen h2:before {
+             content: "✓ "
+         }
+
+         li.active {
+             color: #ff1744
+         }
+
+         li.active img {
+             border: 2px solid #ff1744;
+         }
+
+         li h2 {
+             font-family: 'Dosis', sans-serif;
+             font-size: 1.2vw;
+             font-weight: 600;
+             margin: auto;
+         }
+
+         #seasons {
+             font-family: 'Dosis', sans-serif;
+             font-size: 1.5vw;
+             font-weight: 600;
+             padding: 0 auto;
+             margin-bottom: -15px;
+         }
+
+         ul#episodes {
+             background-color: black;
+             padding-top: 1vw;
+             overflow-x: scroll;
+         }
+
+         ul#episodes img {
+             border-radius: 4px;
+             width: 13vw;
+             height: 8vw;
+         }
+
+        </style>
+    </head>
+    <body>
+        <nav></nav>
+        <div id="statusbar">
+            <div><span>go_back</span><span class="title">TV SHOW NAME</span></div>
+            <div>
+                <span>connected</span>
+                <span>magnet</span>
+                <span>favourite</span>
+                <span>seen</span>
+            </div>
+        </div>
+        <div id="backdrop"></div>
+        <div id="container">
+            <div id="info">
+                <h1>Philosophy As A Science</h1>
+                <div id="infobar">
+                    <span>2016</span>
+                    <span>108 min</span>
+                    <span>Action</span>
+                    <span></span>
+                </div>
+                <p> What is the loop of Creation? How is there something from nothing?
+
+                    In spite of the fact that it is impossible to prove that anything exists beyond one's perception since any such proof would involve one's perception (I observed it, I heard it, I thought about it, I calculated it, and etc.), science deals with a so-called objective reality "out there," beyond one's perception professing to describe Nature objectively (as if there was a Nature or reality external to one's perception). <a href="#">MORE</a>
+                </p>
+                <div id="playbar">
+                    <div> <button></button> <span>Play S01 E04</span></div>
+                    <div> <button>SPANISH</button> <span>Subtitles</span></div>
+                    <div> <button>720p</button> <span>Quality</span></div>
+                    <div> <button>Butter</button> <span>Streamer</span></div>
+                </div>
+            </div>
+            <div id="cover">
+                <img src="https://darkville.tv/assets/img/got/gots2.jpg"/>
+            </div>
+        </div>
+        <div #selector>
+            <ul id="seasons">
+                <li>SEASON 1</li>
+                <li>SEASON 2</li>
+                <li>SEASON 3</li>
+            </ul>
+            <ul id="episodes">
+                <li class="seen"><div><img src="https://imagesvc.timeincapp.com/v3/fan/image?url=https://winteriscoming.net/wp-content/blogs.dir/385/files/2017/07/Screen-Shot-2017-07-21-at-9.53.13-AM.jpg&c=sc&w=2421&h=1338"/><h2>1 - Words To live By</h2></div></li>
+                <li class="seen"><div><img src="https://imagesvc.timeincapp.com/v3/fan/image?url=https://winteriscoming.net/wp-content/blogs.dir/385/files/2017/08/28-Night-King-ScnCap-706-Trailer-1.jpg&c=sc&w=1334&h=750"/><h2>2 - The Science Of Superstitions</h2></div></li>
+                <li class="seen active"><div><img src="https://imagesvc.timeincapp.com/v3/fan/image?url=https://winteriscoming.net/wp-content/blogs.dir/385/files/2017/07/tyrion-Missandei.jpg&c=sc&w=1680&h=939"/><h2>3 - Philosophy As A Science</h2></div></li>
+                <li class="seen"><div><img src="https://www.unilad.co.uk/wp-content/uploads/2016/06/20160525_ep_606_Publicity_still_04_001314651.jpg"/><h2>4 - The Emerald Buddha</h2></div></li>
+                <li><div><img src="https://imagesvc.timeincapp.com/v3/fan/image?url=https://winteriscoming.net/wp-content/blogs.dir/385/files/2017/07/Screen-Shot-2017-07-21-at-9.53.13-AM.jpg&c=sc&w=2421&h=1338"/><h2>5 - Always Look On The Bright Side Of Life</h2></div></li>
+                <li><div><img src="https://imagesvc.timeincapp.com/v3/fan/image?url=https://winteriscoming.net/wp-content/blogs.dir/385/files/2017/08/28-Night-King-ScnCap-706-Trailer-1.jpg&c=sc&w=1334&h=750"/><h2>6 - Make Funny Titles For Testing Purposes</h2></div></li>
+                <li><div><img src="https://imagesvc.timeincapp.com/v3/fan/image?url=https://winteriscoming.net/wp-content/blogs.dir/385/files/2017/07/tyrion-Missandei.jpg&c=sc&w=1680&h=939"/><h2>7 - I Guess GOT got you hooked</h2></div></li>
+                <li><div><img src="https://www.unilad.co.uk/wp-content/uploads/2016/06/20160525_ep_606_Publicity_still_04_001314651.jpg"/><h2>8 - It is fascism, isn't it ?</h2></div></li>
+            </ul>
+
+        </div>
+    </body>
+</html>

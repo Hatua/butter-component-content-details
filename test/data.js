@@ -9,7 +9,7 @@ export default {
     "runtime": 108,
     "image": "http://vodo.net/media/posters/poster_personofinterest.jpg",
     "cover": "http://vodo.net/media/posters/poster_personofinterest.jpg",
-    "backdrop": "http://vodo.net/media/posters/poster_personofinterest.jpg",
+    "backdrop": "https://socialgeek.co/wp-content/uploads/2016/04/game-of-thrones-fan-art-ertacaltinoz-deviantart.jpg",
     "subtitles": {
         "english": {
             url: "http://blah.srt/"

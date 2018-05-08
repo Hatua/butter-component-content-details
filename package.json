@@ -1,11 +1,11 @@
 {
-  "name": "butter-component-movie-details",
+  "name": "butter-component-content-details",
   "version": "0.1.0",
-  "description": "A Butter Component to show the movie details",
+  "description": "A Butter Component to content the content details",
   "main": "dist/bundle.js",
   "repository": {
     "type": "git",
-    "url": "https://github.com/buttercomponents/butter-component-movie-details.git"
+    "url": "https://github.com/buttercomponents/butter-component-content-details.git"
   },
   "keywords": [
     "react",
@@ -21,9 +21,9 @@
   "author": "Niv Sardi <x@btn.sh>",
   "license": "GPL-3.0",
   "bugs": {
-    "url": "https://github.com/buttercomponents/butter-component-movie-details/issues"
+    "url": "https://github.com/buttercomponents/butter-component-content-details/issues"
   },
-  "homepage": "https://github.com/buttercomponents/butter-component-movie-details",
+  "homepage": "https://github.com/buttercomponents/butter-component-content-details",
   "devDependencies": {
     "butter-component-builder": "buttercomponents/butter-component-builder"
   },
