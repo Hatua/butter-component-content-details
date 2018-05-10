@@ -78,26 +78,27 @@ const SeasonSelector = ({seasons}) => (
     </div>
 )
 
-let ContentDetails = ({title, synopsis, cover, backdrop, episodes, ...props}) => (
-    <div>
-        <div className={style["backdrop"]} style={{backgroundImage: `url(${backdrop})`}}></div>
-        <div className={style.detail}>
-            <Navbar goBack={goBack} right={<ToolBar/>}/>
-            <div className={style["container"]}>
-                <div className={style["info"]}>
-                    <h1>{title}</h1>
-                    <InfoBar {...props}/>
-                    <p className="synopsis"> {synopsis} </p>
-                    <PlayButtons {...props}/>
-                </div>
-                <div className={style["cover"]}>
-                    <img src={cover}/>
+const ContentDetails = ({
+    title, synopsis, cover, backdrop, seasons, goBack={}, toolbar, ...props}) => (
+        <div>
+            <div className={style["backdrop"]} style={{backgroundImage: `url(${backdrop})`}}></div>
+            <div className={style.detail}>
+                <Navbar key='main_nav' goBack={goBack} right = {toolbar}/>
+                <div className={style["container"]}>
+                    <div className={style["info"]}>
+                        <h1>{title}</h1>
+                        <InfoBar {...props}/>
+                        <p className="synopsis"> {synopsis} </p>
+                        <PlayButtons {...props}/>
+                    </div>
+                    <div className={style["cover"]}>
+                        <img src={cover}/>
+                    </div>
                 </div>
                 {seasons ? <SeasonSelector seasons={seasons}/> : null}
             </div>
         </div>
-    </div>
-)
+    )
 
 ContentDetails.defaultProps = {
     subtitles: {none: null},
