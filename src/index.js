@@ -3,6 +3,7 @@ import { translate } from 'react-i18next';
 import style from './style.styl';
 
 import {Navbar, Dropdowns, Buttons, Stars} from 'butter-base-components';
+import {StateMenu} from 'butter-component-menu';
 import ActionBar from './components/action-bar';
 
 let {Dropdown} = Dropdowns
@@ -58,23 +59,22 @@ let InfoBar = ({year, runtime, genres, rating, ...props}) => (
     </div>
 )
 
-let EpisodeSelector = ({episodes}) => (
+const EpisodeSelector = ({items = {episodes: []}}) => (
+    <ul className={style["episodes"]}>
+        {items.episodes.map(({img, title, markers = {}}, key) => (
+            <li className={Object.keys(markers).join(' ')} key={key}>
+                <div>
+                    <img src={img}/>
+                    <h2>{key} - {title}</h2>
+                </div>
+            </li>
+        ))}
+    </ul>
+)
+
+const SeasonSelector = ({seasons}) => (
     <div className={style["selector"]}>
-        <ul className={style["seasons"]}>
-            <li>SEASON 1</li>
-            <li>SEASON 2</li>
-            <li>SEASON 3</li>
-        </ul>
-        <ul className={style["episodes"]}>
-            {episodes.map(({img, title, markers = {}}, key) => (
-                <li className={Object.keys(markers).join(' ')} key={key}>
-                    <div>
-                        <img src={img}/>
-                        <h2>{key} - {title}</h2>
-                    </div>
-                </li>
-            ))}
-        </ul>
+        <StateMenu items={seasons} child={EpisodeSelector}/>
     </div>
 )
 
@@ -93,8 +93,8 @@ let ContentDetails = ({title, synopsis, cover, backdrop, episodes, ...props}) =>
                 <div className={style["cover"]}>
                     <img src={cover}/>
                 </div>
+                {seasons ? <SeasonSelector seasons={seasons}/> : null}
             </div>
-            {episodes ? <EpisodeSelector episodes={episodes}/> : null}
         </div>
     </div>
 )
