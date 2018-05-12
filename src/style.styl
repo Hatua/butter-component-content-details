@@ -70,13 +70,14 @@
         font-family: var(--Font-title);
         font-weight: bolder;
         font-size: 4vw;
-        margin: 4vw auto 1vw 0;
+        margin: 4vw auto 0 0;
     }
 
     p[class=synopsis] {
         font-family: var(--Font-normal);
         font-size: 2vw;
-        flex: 2
+        flex: 2;
+        line-height: 3vw;
     }
 }
 
@@ -161,7 +162,9 @@
 .infoline {
     font-family: var(--Font-title);
     font-weight: 600;
-    color: #888
+    font-size: 1.5vw;
+    color: #888;
+    padding: 1.2vw 0;
 
     & > span:before {
       content: "·";
@@ -234,3 +237,21 @@
     }
 }
 
+[id=navbar] {
+  background-color: transparent!important;
+
+  & a {
+    font-size: 3vw !important;
+    font-family: var(--Font-title);
+    font-weight: bolder;
+    font-variant: all-petite-caps;
+    padding-right: 4vw;
+  }
+
+  & a i {
+      position: relative;
+      top: 0.7vw;
+      font-size: 3vw;
+      font-variant: traditional;
+  }
+}
