@@ -6,13 +6,13 @@ import {Navbar, Dropdowns, Buttons, Stars} from 'butter-base-components';
 import {StateMenu} from 'butter-component-menu';
 import ActionBar from './components/action-bar';
 
-let {Dropdown} = Dropdowns
-let {Button} = Buttons
+const {Dropdown} = Dropdowns
+const {Button} = Buttons
 
-let CloseButton = (props) => (props)
-let goBack = () => ('/')
+const Identity = (props) => (props)
+const goBack = () => ('/')
 
-let ToolBar = ({}) => (
+const ToolBar = ({}) => (
     <div>
         <Button title="Add to Bookmarks" icon="favorite"/>
         <Button title="Seen" icon="visibility"/>
@@ -21,18 +21,18 @@ let ToolBar = ({}) => (
     </div>
 )
 
-let LegendedButton = ({children, title}) => (
+const LegendedButton = ({children, title}) => (
     <div>
         {children}
         <span>{title}</span>
     </div>
 )
 
-let PlayButton = () => (
+const PlayButton = () => (
     <i style={{fontSize: '2vw', margin: 'auto'}} className='material-icons'>play_arrow</i>
 )
 
-let PlayButtons = ({type, torrents, subtitles, ...props}) => (
+const PlayButtons = ({type, torrents, subtitles, ...props}) => (
     <div className={style.playbuttons}>
         <LegendedButton title={`Play ${type}`}><Button title={<PlayButton/>} /></LegendedButton>
         <LegendedButton title="Subtitles"><Dropdown options={Object.keys(subtitles)}/></LegendedButton>
@@ -42,7 +42,7 @@ let PlayButtons = ({type, torrents, subtitles, ...props}) => (
     </div>
 )
 
-let InfoLine = ({year, runtime, genres, rating, ...props}) => (
+const InfoLine = ({year, runtime, genres, rating, ...props}) => (
     <div className={style.info} className={style["infoline"]}>
         <span>
             {year}
