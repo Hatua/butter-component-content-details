@@ -152,21 +152,26 @@
     }
 }
 
-
 .infobar {
+  i {
+    padding: 1vh;
+  }
+}
+
+.infoline {
     font-family: 'Dosis', sans-serif;
     font-weight: 600;
     color: #888
-}
 
-.infobar span:before {
-    content: "·";
-    padding: 1vh;
-    font-weight: 900;
-}
+    & > span:before {
+      content: "·";
+      padding: 1vh;
+      font-weight: 900;
+    }
 
-.infobar span:first-of-type:before {
-    content: "";
+    & > span:first-of-type:before {
+      content: "";
+    }
 }
 
 .selector {

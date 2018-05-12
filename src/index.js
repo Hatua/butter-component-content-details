@@ -42,8 +42,8 @@ let PlayButtons = ({type, torrents, subtitles, ...props}) => (
     </div>
 )
 
-let InfoBar = ({year, runtime, genres, rating, ...props}) => (
-    <div className={style.info} className={style["infobar"]}>
+let InfoLine = ({year, runtime, genres, rating, ...props}) => (
+    <div className={style.info} className={style["infoline"]}>
         <span>
             {year}
         </span>
@@ -87,7 +87,7 @@ const ContentDetails = ({
                 <div className={style["container"]}>
                     <div className={style["info"]}>
                         <h1>{title}</h1>
-                        <InfoBar {...props}/>
+                        <InfoLine {...props}/>
                         <p className="synopsis"> {synopsis} </p>
                         <PlayButtons {...props}/>
                     </div>
