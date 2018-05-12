@@ -78,12 +78,21 @@ const SeasonSelector = ({seasons}) => (
     </div>
 )
 
+const InfoBar = () => (
+    <div className={style.infobar}>
+        <i className='material-icons'>fiber_manual_record</i>
+        <i className='material-icons'>share</i>
+        <i className='material-icons'>favorite</i>
+        <i className='material-icons'>visibilty</i>
+    </div>
+)
+
 const ContentDetails = ({
     title, synopsis, cover, backdrop, seasons, goBack={}, toolbar, ...props}) => (
         <div>
             <div className={style["backdrop"]} style={{backgroundImage: `url(${backdrop})`}}></div>
             <div className={style.detail}>
-                <Navbar key='main_nav' goBack={goBack} right = {toolbar}/>
+                <Navbar key='main_nav' goBack={goBack} right={<InfoBar/>}/>
                 <div className={style["container"]}>
                     <div className={style["info"]}>
                         <h1>{title}</h1>
