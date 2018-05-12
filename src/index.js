@@ -88,7 +88,7 @@ const InfoBar = () => (
 )
 
 const ContentDetails = ({
-    title, synopsis, cover, backdrop, seasons, goBack={}, toolbar, ...props}) => (
+    title, synopsis, cover, backdrop, seasons, goBack={action: Identity, title: "Go Back"}, toolbar, ...props}) => (
         <div>
             <div className={style["backdrop"]} style={{backgroundImage: `url(${backdrop})`}}></div>
             <div className={style.detail}>
