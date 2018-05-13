@@ -92,7 +92,7 @@ const ContentDetails = ({
         <div>
             <div className={style["backdrop"]} style={{backgroundImage: `url(${backdrop})`}}></div>
             <div className={style.detail}>
-                <Navbar key='main_nav' goBack={goBack} right={<InfoBar/>}/>
+                <Navbar type='content-nav' goBack={goBack} right={<InfoBar/>}/>
                 <div className={style["container"]}>
                     <div className={style["info"]}>
                         <h1>{title}</h1>
