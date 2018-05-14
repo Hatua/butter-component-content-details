@@ -32,9 +32,9 @@ const PlayButton = () => (
     <i style={{fontSize: '2vw', margin: 'auto'}} className='material-icons'>play_arrow</i>
 )
 
-const PlayButtons = ({type, torrents, subtitles, ...props}) => (
+const PlayButtons = ({type, torrents, subtitles, actions, ...props}) => (
     <div className={style.playbuttons}>
-        <LegendedButton title={`Play ${type}`}><Button title={<PlayButton/>} /></LegendedButton>
+        <LegendedButton title={`Play ${type}`}><Button title={<PlayButton/>} apply={actions.play}/></LegendedButton>
         <LegendedButton title="Subtitles"><Dropdown options={Object.keys(subtitles)}/></LegendedButton>
         <LegendedButton title="Quality"><Dropdown options={Object.keys(torrents)}/></LegendedButton>
 
@@ -88,7 +88,8 @@ const InfoBar = () => (
 )
 
 const ContentDetails = ({
-    title, synopsis, cover, backdrop, seasons, goBack={action: Identity, title: "Go Back"}, toolbar, ...props}) => (
+    title, synopsis, cover, backdrop, seasons,
+    goBack={action: Identity, title: "Go Back"}, ...props}) => (
         <div>
             <div className={style["backdrop"]} style={{backgroundImage: `url(${backdrop})`}}></div>
             <div className={style.detail}>
