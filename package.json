@@ -29,6 +29,7 @@
   },
   "dependencies": {
     "butter-base-components": "buttercomponents/butter-base-components",
+    "butter-component-list": "buttercomponents/butter-component-list",
     "butter-component-menu": "buttercomponents/butter-component-menu",
     "react-i18next": "^3.1.0",
     "react-transition-group": "^1.1.2"

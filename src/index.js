@@ -4,6 +4,7 @@ import style from './style.styl';
 
 import {Navbar, Dropdowns, Buttons, Stars} from 'butter-base-components';
 import {StateMenu} from 'butter-component-menu';
+import {Item} from 'butter-component-list';
 import ActionBar from './components/action-bar';
 
 const {Dropdown} = Dropdowns
@@ -61,13 +62,8 @@ const InfoLine = ({year, runtime, genres, rating, ...props}) => (
 
 const EpisodeSelector = ({items = {episodes: []}}) => (
     <ul className={style["episodes"]}>
-        {items.episodes.map(({img, title, markers = {}}, key) => (
-            <li className={Object.keys(markers).join(' ')} key={key}>
-                <div>
-                    <img src={img}/>
-                    <h2>{key} - {title}</h2>
-                </div>
-            </li>
+        {items.episodes.map((item, idx) => (
+            <Item item={Object.assign({}, item, {title: `${idx} - ${item.title}`})} key={idx}/>
         ))}
     </ul>
 )
