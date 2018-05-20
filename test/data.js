@@ -52,6 +52,8 @@ export default {
     "health": false,
     seasons: [{
         title: 'Season 1',
+        synopsis: 'this is season ONE of this awesome show, it\'s a smart, indendent show, that makes you think and shiver',
+        poster: 'https://bookworm2bookworm.files.wordpress.com/2011/07/got.jpg',
         episodes: [{
             poster: "http://www.cap-that.com/bloodties/101/images/101_cap013.jpg",
             title: 'Words To live By',
@@ -83,6 +85,8 @@ export default {
         }]
     }, {
         title: 'Season 2',
+        synopsis: 'this is season SECOND of this awesome show, in this season Netflix buys the show and turns it to a shitty pseudo romantic fascist comedy',
+        poster: 'http://images5.fanpop.com/image/photos/29400000/Game-of-Thrones-Season-2-Poster-game-of-thrones-29435470-1728-2560.jpg',
         episodes: [{
             poster: "http://www.cap-that.com/bloodties/111/images/111_cap013.jpg",
             title: 'Words To live By',
