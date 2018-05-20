@@ -37,7 +37,8 @@ class ContentDetails extends React.Component {
               const season = seasons[match.params.sid - 1]
               const episode = season.episodes[match.params.eid - 1]
               episode.goBack = {
-                title: `${props.title} - ${season.title}`
+                title: `${props.title} - ${season.title}`,
+                action: history.goBack
               }
               return (
                 <Info {...props} {...episode} />
@@ -45,7 +46,10 @@ class ContentDetails extends React.Component {
             }} />
             <Route path={`${baseUrl}/s/:sid`} render={({match, history}) => {
               const season = seasons[match.params.sid - 1]
-              season.goBack = {title: props.title}
+              season.goBack = {
+                title: props.title,
+                action: history.goBack
+              }
               return (
                 <Info {...props} {...season} />
               )
