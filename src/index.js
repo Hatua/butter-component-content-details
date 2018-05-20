@@ -1,6 +1,7 @@
 import React from 'react'
 
-import {MenuSwitch} from 'butter-component-menu'
+import {Switch, Route} from 'react-router-dom'
+import {menuRoutes} from 'butter-component-menu'
 
 import SeasonSelector from './components/seasonselector'
 import Info from './components/info'
@@ -21,20 +22,24 @@ class ContentDetails extends React.Component {
 
   render () {
     const {backdrop, seasons, ...props} = this.props
+    const baseUrl = locationToSeasonURL(location)
     const pathSeasons = seasons.map(
       (season, i) => Object.assign({}, props, season, {
         goBack: Object.assign({}, props.goBack, {title: props.title}),
-        path: `${locationToSeasonURL(location)}/s${i + 1}`
+        path: `${baseUrl}/s${i + 1}`
       })
     )
 
     return (
       <div>
-        <div className={style.backdrop} style={{backgroundImage: `url(${backdrop})`}} />
-        <div className={style.container}>
-          <MenuSwitch items={pathSeasons} child={Info} fallback={<Info {...props} />} />
-          {seasons ? <SeasonSelector seasons={pathSeasons} /> : null}
-        </div>
+          <div className={style.backdrop} style={{backgroundImage: `url(${backdrop})`}} />
+          <div className={style.container}>
+              <Switch>
+                  {menuRoutes(pathSeasons, Info, props)}
+                  <Route render={() => <Info {...props} />} />
+              </Switch>
+              {seasons ? <SeasonSelector seasons={pathSeasons} /> : null}
+          </div>
       </div>
     )
   }
