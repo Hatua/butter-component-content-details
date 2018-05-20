@@ -125,6 +125,11 @@ ContentDetails.defaultProps = {
     subtitles: {none: null},
     torrents: {Unknown: null},
     genres: ['none'],
+    goBack: {action: Identity, title: "Go Back"},
+    actions: {
+        DETAIL: () => console.log('call DETAIL')
+    },
+    dispatch: a => a
 }
 export {
     ContentDetails as default
