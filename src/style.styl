@@ -1,29 +1,25 @@
-.main {
+.container {
+    height: 100%;
     position: absolute;
     z-index: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
 }
 
 .detail {
     z-index: 10;
-    position: relative;
     width: 100vw;
-    height: calc(100% - 264px);
     display: flex;
-    flex-direction: column;
-}
-
-.container {
-    display: flex;
-    flex: 2;
 }
 
 .backdrop, .backdrop:before {
     display:block;
     position: absolute;
-    top: -10%;
+    top: 0;
     left: 0;
     width: 100vw;
-    height: 110vh;
+    height: 100vh;
     z-index: 0;
 }
 

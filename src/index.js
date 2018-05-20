@@ -3,7 +3,7 @@ import { translate } from 'react-i18next';
 import style from './style.styl';
 
 import {Navbar, Dropdowns, Buttons, Stars} from 'butter-base-components';
-import {RouterMenu} from 'butter-component-menu';
+import {RouterMenu, MenuSwitch} from 'butter-component-menu';
 import {Item} from 'butter-component-list';
 import ActionBar from './components/action-bar';
 
@@ -98,6 +98,24 @@ const InfoBar = () => (
     </div>
 )
 
+const Details = ({id, goBack, title, synopsis, overview, poster, ...props}) => ([
+    <Navbar key='detail-navbar-${id}' type='content-nav' goBack={goBack} right={<InfoBar/>}/>,
+    <div key={`details-${id}`}className={style.detail}>
+        <div className={style.info}>
+            <h1>{title}</h1>
+            <InfoLine {...props}/>
+            <p className="synopsis"> {overview || synopsis} </p>
+            <PlayButtons {...props}/>
+        </div>
+        <div className={style.cover}>
+            <img src={poster}/>
+        </div>
+    </div>
+]
+
+
+)
+
 class ContentDetails extends React.Component {
     constructor(props) {
         super(props)
@@ -110,30 +128,20 @@ class ContentDetails extends React.Component {
     }
 
     render() {
-        const {
-            title, synopsis, overview, poster, backdrop, seasons,
-            goBack, ...props
-        } = this.props
+        const {backdrop, seasons, ...props} = this.props
+        const pathSeasons = seasons.map(
+            (season, i) => Object.assign({}, props, season, {
+                goBack: Object.assign({}, props.goBack, {title: props.title}),
+                path: `${locationToSeasonURL(location)}/s${i + 1}`
+            })
+        )
 
         return (
             <div>
-                <div className={style["backdrop"]} style={{backgroundImage: `url(${backdrop})`}}></div>
-                <div className={style.main}>
-                    <div className={style.detail}>
-                        <Navbar type='content-nav' goBack={goBack} right={<InfoBar/>}/>
-                        <div className={style["container"]}>
-                            <div className={style["info"]}>
-                                <h1>{title}</h1>
-                                <InfoLine {...props}/>
-                                <p className="synopsis"> {synopsis || overview} </p>
-                                <PlayButtons {...props}/>
-                            </div>
-                            <div className={style["cover"]}>
-                                <img src={poster}/>
-                            </div>
-                        </div>
-                    </div>
-                    {seasons ? <SeasonSelector seasons={seasons}/> : null}
+                <div className={style.backdrop} style={{backgroundImage: `url(${backdrop})`}}/>
+                <div className={style.container}>
+                    <MenuSwitch items={pathSeasons} child={Details} fallback={<Details {...props}/>}/>
+                    {seasons ? <SeasonSelector seasons={pathSeasons}/> : null}
                 </div>
             </div>
         )
