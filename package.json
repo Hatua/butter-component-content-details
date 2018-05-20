@@ -25,7 +25,8 @@
   },
   "homepage": "https://github.com/buttercomponents/butter-component-content-details",
   "devDependencies": {
-    "butter-component-builder": "buttercomponents/butter-component-builder"
+    "butter-component-builder": "buttercomponents/butter-component-builder",
+    "standard": "^11.0.1"
   },
   "dependencies": {
     "butter-base-components": "buttercomponents/butter-base-components",
