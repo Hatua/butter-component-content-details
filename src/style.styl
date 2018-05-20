@@ -7,12 +7,6 @@
     justify-content: space-between;
 }
 
-.detail {
-    z-index: 10;
-    width: 100vw;
-    display: flex;
-}
-
 .backdrop, .backdrop:before {
     display:block;
     position: absolute;
@@ -38,6 +32,7 @@
     justify-content: space-between;
     color: white;
 }
+
 .statusbar .title {
     font-family: var(--Font-title);
     font-weight: bolder;
@@ -49,211 +44,21 @@
     padding: 2vh 2vw 0 2vw;
 }
 
-.cover {
-    padding: 4vw;
-    filter: drop-shadow(0px 0px 2px)
-}
-
-.cover img {
-    width: 25vw;
-    border-radius: 10px;
-    margin-bottom: -10vw;
-}
-
-.info {
-    padding: 4vw 0 0vw 4vw;
-    color: white;
-    display: flex;
-    flex-direction: column;
-    flex: 2;
-
-    h1 {
-        font-family: var(--Font-title);
-        font-weight: bolder;
-        font-size: 4vw;
-        margin: 4vw auto 0 0;
-    }
-
-    p[class=synopsis] {
-        font-family: var(--Font-normal);
-        font-size: calc(25% + 3vh);
-        flex: 2;
-        line-height: 3vw;
-    }
-}
-
-.playbuttons {
-    display: flex;
-    font-family: var(--Font-title);
-
-    div {
-        flex-direction: column;
-        display: flex;
-        padding: 2vw;
-        padding-left: 0;
-        color: #aaa;
-        width: 10vw;
-        height: 7vw;
-    }
-
-    div:first-of-type {
-        color: white;
-    }
-
-    div[class*=dropdown-toggle] {
-        display: block;
-        height: 3vw;
-    }
-
-    div[class*=open] div[class*=dropdown-toggle] {
-        background-color: white;
-    }
-
-    div[class*=dropdown-toggle] i {
-        position: absolute;
-        width: 0;
-        height: 0;
-        top: 0;
-        right: 1.8vw;
-    }
-
-    div[class*=dropdown-toggle] > span:first-child {
-        font-family: var(--Font-title);
-        font-weight: bolder;
-        font-size: 2vw!important;
-        padding: 0.8vw!important;
-    }
-
-    div[class*=dropdown-menu] ul {
-        margin-top: 1vw;
-    }
-
-    div[class*=dropdown-menu] li {
-        width: 7vw;
-        text-align: center;
-    }
-
-    & > div > *:first-child {
-        padding: 0;
-        border: 1px solid #aaa;
-        background-color: transparent;
-        color: white;
-        border-radius: 4px;
-        width: 10vw;
-        height: 4.5vw;
-        font-weight: bold;
-    }
-
-    div:first-of-type button {
-        background-color: #ff1744;
-        border-color: #ff1744;
-    }
-
-    span {
-        margin: 0.4vw auto;
-    }
-}
-
-.infobar {
-  i {
-    padding: 1vh;
-  }
-}
-
-.infoline {
-    font-family: var(--Font-title);
-    font-weight: 600;
-    font-size: 1.5vw;
-    color: #888;
-    padding: 1.2vw 0;
-
-    & > span:before {
-      content: "·";
-      padding: 1vh;
-      font-weight: 900;
-    }
-
-    & > span:first-of-type:before {
-      content: "";
-    }
-}
-
-.selector {
-    ul {
-        display: flex;
-    }
-
-    li {
-        display: block;
-        padding: 1vw;
-        color: white;
-    }
-
-    li[class*=seen] {
-        filter: brightness(0.6) ;
-        color: grey;
-    }
-
-    li[class*=seen] h2:before {
-        content: "✓ "
-    }
-
-    li[class*=active] {
-        color: #ff1744
-    }
-
-    li.active img {
-        border: 2px solid #ff1744;
-    }
-
-    li h2 {
-        width: 13vw;
-        font-family: var(--Font-title);
-        font-size: 1.2vw;
-        font-weight: 600;
-        margin: auto;
-    }
-
-    .seasons {
-        font-family: var(--Font-title);
-        font-size: 1.5vw;
-        font-weight: 600;
-        padding: 0 auto;
-        margin-bottom: -15px;
-    }
-
-    ul.episodes {
-        background-color: black;
-        padding-top: 1vw;
-        overflow-x: scroll;
-    }
-
-    ul.episodes img {
-        border-radius: 4px;
-        width: 13vw;
-        height: 8vw;
-    }
-
-    a[class*=active] li:after {
-        background-color: red!important;
-    }
-}
-
 [class*=content-nav] {
-  background-color: transparent!important;
+    background-color: transparent!important;
 
-  & a {
-    font-size: 3vw !important;
-    font-family: var(--Font-title);
-    font-weight: bolder;
-    font-variant: all-petite-caps;
-    padding-right: 4vw;
-  }
+    & a {
+        font-size: 3vw !important;
+        font-family: var(--Font-title);
+        font-weight: bolder;
+        font-variant: all-petite-caps;
+        padding-right: 4vw;
+    }
 
-  & a i {
-      position: relative;
-      top: 0.7vw;
-      font-size: 3vw;
-      font-variant: common-ligatures!important;
-  }
+    & a i {
+        position: relative;
+        top: 0.7vw;
+        font-size: 3vw;
+        font-variant: common-ligatures!important;
+    }
 }
