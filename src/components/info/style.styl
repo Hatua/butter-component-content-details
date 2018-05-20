@@ -1,0 +1,75 @@
+.detail {
+    z-index: 10;
+    width: 100vw;
+    display: flex;
+
+    .cover {
+        padding: 4vw;
+        filter: drop-shadow(0px 0px 2px)
+    }
+
+    .cover img {
+        width: 25vw;
+        border-radius: 10px;
+        margin-bottom: -10vw;
+    }
+
+    .info {
+        padding: 4vw 0 0vw 4vw;
+        color: white;
+        display: flex;
+        flex-direction: column;
+        flex: 2;
+
+        h1 {
+            font-family: var(--Font-title);
+            font-weight: bolder;
+            font-size: 4vw;
+            margin: 4vw auto 0 0;
+        }
+
+        p[class=synopsis] {
+            font-family: var(--Font-normal);
+            font-size: calc(25% + 3vh);
+            flex: 2;
+            line-height: 3vw;
+        }
+    }
+
+    .infoline {
+        font-family: var(--Font-title);
+        font-weight: 600;
+        font-size: 1.5vw;
+        color: #888;
+        padding: 1.2vw 0; 
+
+        & > span:before {
+            content: "·";
+            padding: 1vh;
+            font-weight: 900;
+        }
+
+        & > span:first-of-type:before {
+            content: "";
+        }
+    }
+}
+
+[class*=content-nav] {
+    background-color: transparent!important;
+
+    & a {
+        font-size: 3vw !important;
+        font-family: var(--Font-title);
+        font-weight: bolder;
+        font-variant: all-petite-caps;
+        padding-right: 4vw;
+    }
+
+    & a i {
+        position: relative;
+        top: 0.7vw;
+        font-size: 3vw;
+        font-variant: common-ligatures!important;
+    }
+}

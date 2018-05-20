@@ -1,0 +1,74 @@
+.playbuttons {
+    display: flex;
+    font-family: var(--Font-title);
+    flex: 0;
+    padding-bottom: 10vh;
+
+
+    div {
+        flex-direction: column;
+        display: flex;
+        padding: 2vw;
+        padding-left: 0;
+        color: #aaa;
+        width: 10vw;
+        height: 7vw;
+    }
+
+    div:first-of-type {
+        color: white;
+    }
+
+    div[class*=dropdown-toggle] {
+        display: block;
+        height: 3vw;
+    }
+
+    div[class*=open] div[class*=dropdown-toggle] {
+        background-color: white;
+    }
+
+    div[class*=dropdown-toggle] i {
+        position: absolute;
+        width: 0;
+        height: 0;
+        top: 0;
+        right: 1.8vw;
+    }
+
+    div[class*=dropdown-toggle] > span:first-child {
+        font-family: var(--Font-title);
+        font-weight: bolder;
+        font-size: 2vw!important;
+        padding: 0.8vw!important;
+    }
+
+    div[class*=dropdown-menu] ul {
+        margin-top: 1vw;
+    }
+
+    div[class*=dropdown-menu] li {
+        width: 7vw;
+        text-align: center;
+    }
+
+    & > div > *:first-child {
+        padding: 0;
+        border: 1px solid #aaa;
+        background-color: transparent;
+        color: white;
+        border-radius: 4px;
+        width: 10vw;
+        height: 4.5vw;
+        font-weight: bold;
+    }
+
+    div:first-of-type button {
+        background-color: #ff1744;
+        border-color: #ff1744;
+    }
+
+    span {
+        margin: 0.4vw auto;
+    }
+}

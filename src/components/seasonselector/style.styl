@@ -1,0 +1,60 @@
+.selector {
+    ul {
+        display: flex;
+    }
+
+    li {
+        display: block;
+        padding: 1vw;
+        color: white;
+    }
+
+    li[class*=seen] {
+        filter: brightness(0.6) ;
+        color: grey;
+    }
+
+    li[class*=seen] h2:before {
+        content: "✓ "
+    }
+
+    li[class*=active] {
+        color: #ff1744
+    }
+
+    li.active img {
+        border: 2px solid #ff1744;
+    }
+
+    li h2 {
+        width: 13vw;
+        font-family: var(--Font-title);
+        font-size: 1.2vw;
+        font-weight: 600;
+        margin: auto;
+    }
+
+    .seasons {
+        font-family: var(--Font-title);
+        font-size: 1.5vw;
+        font-weight: 600;
+        padding: 0 auto;
+        margin-bottom: -15px;
+    }
+
+    ul.episodes {
+        background-color: black;
+        padding-top: 1vw;
+        overflow-x: scroll;
+    }
+
+    ul.episodes img {
+        border-radius: 4px;
+        width: 13vw;
+        height: 8vw;
+    }
+
+    a[class*=active] li:after {
+        background-color: red!important;
+    }
+}
