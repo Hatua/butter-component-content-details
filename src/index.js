@@ -3,7 +3,7 @@ import { translate } from 'react-i18next';
 import style from './style.styl';
 
 import {Navbar, Dropdowns, Buttons, Stars} from 'butter-base-components';
-import {StateMenu} from 'butter-component-menu';
+import {RouterMenu} from 'butter-component-menu';
 import {Item} from 'butter-component-list';
 import ActionBar from './components/action-bar';
 
@@ -68,9 +68,18 @@ const EpisodeSelector = ({items = {episodes: []}}) => (
     </ul>
 )
 
+const hashStrip = (hash) => hash.replace(/^#/,'')
+                                .replace(/\/s[0-9]+$/, '')
+
 const SeasonSelector = ({seasons}) => (
     <div className={style["selector"]}>
-        <StateMenu items={seasons} child={EpisodeSelector}/>
+        <RouterMenu child={EpisodeSelector} items={
+            seasons.map(
+                (season, i) => Object.assign(season, {
+                    path: `${hashStrip(location.hash)}/s${i + 1}`
+                })
+            )
+        }/>
     </div>
 )
 
