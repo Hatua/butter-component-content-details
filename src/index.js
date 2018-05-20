@@ -61,7 +61,7 @@ const InfoLine = ({year, runtime, genres, rating, ...props}) => (
             {genres[0]}
         </span>
         <span>
-            <Stars rating={rating}/>
+            <Stars rating={Number(rating)}/>
         </span>
     </div>
 )
