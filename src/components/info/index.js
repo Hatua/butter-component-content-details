@@ -71,7 +71,7 @@ class Synopsis extends React.Component {
 
 Synopsis.defaultProps = {
   text: '',
-  trimLength: 200
+  trimLength: 300
 }
 
 const Info = ({id, goBack, title, synopsis, overview, poster, ...props}) => ([
