@@ -12,6 +12,45 @@ const Identity = (props) => (props)
 const locationToSeasonURL = ({hash}) => hash.replace(/^#/, '')
   .replace(/\/s\/[0-9]+.*/, '')
 
+const DetailSwitch = ({seasons = [], ...props}) => {
+  const baseUrl = locationToSeasonURL(location)
+  const pathSeasons = seasons.map(
+    (season, i) => Object.assign({}, props, season, {
+      path: `${baseUrl}/s/${i + 1}`
+    })
+  )
+
+  return (
+    <div className={style.container}>
+      <Switch>
+        <Route path={`${baseUrl}/s/:sid/e/:eid`} render={({match, history}) => {
+          const season = seasons[match.params.sid - 1] || {episodes: []}
+          const episode = season.episodes[match.params.eid - 1] || {}
+          episode.goBack = {
+            title: `${props.title} - ${season.title}`,
+            action: history.goBack
+          }
+          return (
+            <Info {...props} {...episode} />
+          )
+        }} />
+        <Route path={`${baseUrl}/s/:sid`} render={({match, history}) => {
+          const season = seasons[match.params.sid - 1] || {}
+          season.goBack = {
+            title: props.title,
+            action: history.goBack
+          }
+          return (
+            <Info {...props} {...season} />
+          )
+        }} />
+        <Route render={() => <Info {...props} />} />
+      </Switch>
+      {seasons ? <SeasonSelector seasons={pathSeasons} /> : null}
+    </div>
+  )
+}
+
 class ContentDetails extends React.Component {
   componentDidMount () {
     const {dispatch, actions, ...props} = this.props
@@ -20,46 +59,12 @@ class ContentDetails extends React.Component {
   }
 
   render () {
-    const {backdrop, seasons, ...props} = this.props
-    const baseUrl = locationToSeasonURL(location)
-    const pathSeasons = seasons.map(
-      (season, i) => Object.assign({}, props, season, {
-        path: `${baseUrl}/s/${i + 1}`
-      })
-    )
+    const {backdrop, ...props} = this.props
 
-    return (
-      <div>
-        <div className={style.backdrop} style={{backgroundImage: `url(${backdrop})`}} />
-        <div className={style.container}>
-          <Switch>
-            <Route path={`${baseUrl}/s/:sid/e/:eid`} render={({match, history}) => {
-              const season = seasons[match.params.sid - 1]
-              const episode = season.episodes[match.params.eid - 1]
-              episode.goBack = {
-                title: `${props.title} - ${season.title}`,
-                action: history.goBack
-              }
-              return (
-                <Info {...props} {...episode} />
-              )
-            }} />
-            <Route path={`${baseUrl}/s/:sid`} render={({match, history}) => {
-              const season = seasons[match.params.sid - 1]
-              season.goBack = {
-                title: props.title,
-                action: history.goBack
-              }
-              return (
-                <Info {...props} {...season} />
-              )
-            }} />
-            <Route render={() => <Info {...props} />} />
-          </Switch>
-          {seasons ? <SeasonSelector seasons={pathSeasons} /> : null}
-        </div>
-      </div>
-    )
+    return [
+      <div key='content-navbar' className={style.backdrop} style={{backgroundImage: `url(${backdrop})`}} />,
+      <DetailSwitch key={props.id} {...props} />
+    ]
   }
 }
 
