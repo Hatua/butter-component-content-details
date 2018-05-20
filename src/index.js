@@ -98,28 +98,47 @@ const InfoBar = () => (
     </div>
 )
 
-const ContentDetails = ({
-    title, synopsis, cover, backdrop, seasons,
-    goBack={action: Identity, title: "Go Back"}, ...props}) => (
-        <div>
-            <div className={style["backdrop"]} style={{backgroundImage: `url(${backdrop})`}}></div>
-            <div className={style.detail}>
-                <Navbar type='content-nav' goBack={goBack} right={<InfoBar/>}/>
-                <div className={style["container"]}>
-                    <div className={style["info"]}>
-                        <h1>{title}</h1>
-                        <InfoLine {...props}/>
-                        <p className="synopsis"> {synopsis} </p>
-                        <PlayButtons {...props}/>
+class ContentDetails extends React.Component {
+    constructor(props) {
+        super(props)
+    }
+
+    componentDidMount() {
+        const {dispatch, actions, ...props} = this.props
+
+        dispatch(actions.DETAIL(props))
+    }
+
+    render() {
+        const {
+            title, synopsis, overview, poster, backdrop, seasons,
+            goBack, ...props
+        } = this.props
+
+        return (
+            <div>
+                <div className={style["backdrop"]} style={{backgroundImage: `url(${backdrop})`}}></div>
+                <div className={style.main}>
+                    <div className={style.detail}>
+                        <Navbar type='content-nav' goBack={goBack} right={<InfoBar/>}/>
+                        <div className={style["container"]}>
+                            <div className={style["info"]}>
+                                <h1>{title}</h1>
+                                <InfoLine {...props}/>
+                                <p className="synopsis"> {synopsis || overview} </p>
+                                <PlayButtons {...props}/>
+                            </div>
+                            <div className={style["cover"]}>
+                                <img src={poster}/>
+                            </div>
+                        </div>
                     </div>
-                    <div className={style["cover"]}>
-                        <img src={cover}/>
-                    </div>
+                    {seasons ? <SeasonSelector seasons={seasons}/> : null}
                 </div>
-                {seasons ? <SeasonSelector seasons={seasons}/> : null}
             </div>
-        </div>
-    )
+        )
+    }
+}
 
 ContentDetails.defaultProps = {
     subtitles: {none: null},

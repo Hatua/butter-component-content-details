@@ -7,7 +7,7 @@ export default {
     ],
     "rating": "8.5",
     "runtime": 108,
-    "image": "http://vodo.net/media/posters/poster_personofinterest.jpg",
+    "poster": "http://vodo.net/media/posters/poster_personofinterest.jpg",
     "cover": "http://vodo.net/media/posters/poster_personofinterest.jpg",
     "backdrop": "https://socialgeek.co/wp-content/uploads/2016/04/game-of-thrones-fan-art-ertacaltinoz-deviantart.jpg",
     "subtitles": {
@@ -45,7 +45,7 @@ export default {
     "trailer": false,
     "synopsis": "A veteran of the war in Iraq, and self-proclaimed American Patriot, becomes convinced that the federal government is setting him up as the fall guy in a soon-to-be terrorist attack on American soil.",
     "type": "movie",
-    "_id": "8O3XXwsfu47svXaS",
+    "id": "8O3XXwsfu47svXaS",
     "provider": "vodo",
     "watched": false,
     "bookmarked": false,
@@ -53,63 +53,63 @@ export default {
     seasons: [{
         title: 'Season 1',
         episodes: [{
-            img: "http://www.cap-that.com/bloodties/101/images/101_cap013.jpg",
+            poster: "http://www.cap-that.com/bloodties/101/images/101_cap013.jpg",
             title: 'Words To live By',
             markers: {seen: true}
         }, {
-            img: "http://www.cap-that.com/bloodties/102/images/102_cap013.jpg",
+            poster: "http://www.cap-that.com/bloodties/102/images/102_cap013.jpg",
             title: "The Science Of Superstitions",
             seen:true
         }, {
-            img: "http://www.cap-that.com/bloodties/103/images/103_cap013.jpg",
+            poster: "http://www.cap-that.com/bloodties/103/images/103_cap013.jpg",
             title: 'Philosophy As A Science',
             markers: {seen: true, active: true},
         }, {
-            img: "http://www.cap-that.com/bloodties/104/images/104_cap013.jpg",
+            poster: "http://www.cap-that.com/bloodties/104/images/104_cap013.jpg",
             title: 'The Emerald Buddha',
             markers: {seen: true}
         }, {
-            img: "http://www.cap-that.com/bloodties/105/images/105_cap013.jpg",
+            poster: "http://www.cap-that.com/bloodties/105/images/105_cap013.jpg",
             title: 'Always Look On The Bright Side Of Life'
         }, {
-            img: "http://www.cap-that.com/bloodties/106/images/106_cap013.jpg",
+            poster: "http://www.cap-that.com/bloodties/106/images/106_cap013.jpg",
             title: 'Make Funny Titles For Testing Purposes'
         }, {
-            img: "http://www.cap-that.com/bloodties/107/images/107_cap013.jpg",
+            poster: "http://www.cap-that.com/bloodties/107/images/107_cap013.jpg",
             title: 'I Guess GOT got you hooked'
         }, {
-            img: "http://www.cap-that.com/bloodties/108/images/108_cap013.jpg",
+            poster: "http://www.cap-that.com/bloodties/108/images/108_cap013.jpg",
             title: 'It is fascism, isn\'t it ?'
         }]
     }, {
         title: 'Season 2',
         episodes: [{
-            img: "http://www.cap-that.com/bloodties/111/images/111_cap013.jpg",
+            poster: "http://www.cap-that.com/bloodties/111/images/111_cap013.jpg",
             title: 'Words To live By',
             markers: {seen: true}
         }, {
-            img: "http://www.cap-that.com/bloodties/112/images/112_cap013.jpg",
+            poster: "http://www.cap-that.com/bloodties/112/images/112_cap013.jpg",
             title: "The Science Of Superstitions",
             seen:true
         }, {
-            img: "http://www.cap-that.com/bloodties/113/images/113_cap013.jpg",
+            poster: "http://www.cap-that.com/bloodties/113/images/113_cap013.jpg",
             title: 'Philosophy As A Science',
             markers: {seen: true, active: true},
         }, {
-            img: "http://www.cap-that.com/bloodties/114/images/114_cap013.jpg",
+            poster: "http://www.cap-that.com/bloodties/114/images/114_cap013.jpg",
             title: 'The Emerald Buddha',
             markers: {seen: true}
         }, {
-            img: "http://www.cap-that.com/bloodties/115/images/115_cap013.jpg",
+            poster: "http://www.cap-that.com/bloodties/115/images/115_cap013.jpg",
             title: 'Always Look On The Bright Side Of Life'
         }, {
-            img: "http://www.cap-that.com/bloodties/116/images/116_cap013.jpg",
+            poster: "http://www.cap-that.com/bloodties/116/images/116_cap013.jpg",
             title: 'Make Funny Titles For Testing Purposes'
         }, {
-            img: "http://www.cap-that.com/bloodties/117/images/117_cap013.jpg",
+            poster: "http://www.cap-that.com/bloodties/117/images/117_cap013.jpg",
             title: 'I Guess GOT got you hooked'
         }, {
-            img: "http://www.cap-that.com/bloodties/118/images/118_cap013.jpg",
+            poster: "http://www.cap-that.com/bloodties/118/images/118_cap013.jpg",
             title: 'It is fascism, isn\'t it ?'
         }]
     }]
