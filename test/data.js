@@ -57,31 +57,39 @@ export default {
     episodes: [{
       poster: 'http://www.cap-that.com/bloodties/101/images/101_cap013.jpg',
       title: 'Words To live By',
+      synopsis: 'first episode of an amazing saga, susan and charly are a normal married couple, he cheats on her while controling her, but susan meets an anarchist in a local bar',
       markers: {seen: true}
     }, {
       poster: 'http://www.cap-that.com/bloodties/102/images/102_cap013.jpg',
       title: 'The Science Of Superstitions',
+      synopsis: 'charly bumps into a demostration on the way to work, stuck in traffic he listens to the protesters and starts to wonder if working 9-5 is exactly what he thinks happiness is about',
       seen: true
     }, {
       poster: 'http://www.cap-that.com/bloodties/103/images/103_cap013.jpg',
       title: 'Philosophy As A Science',
+      synopsis: 'susan understands that jealousy is violence and dumps charly, he becomes violent and she seeks refuge in a comune',
       markers: {seen: true, active: true}
     }, {
       poster: 'http://www.cap-that.com/bloodties/104/images/104_cap013.jpg',
       title: 'The Emerald Buddha',
+      synopsis: 'charly, broken by susan\'s departure seeks for answers everywhere, eventually he goes to the forest to do ayawasca',
       markers: {seen: true}
     }, {
       poster: 'http://www.cap-that.com/bloodties/105/images/105_cap013.jpg',
-      title: 'Always Look On The Bright Side Of Life'
+      title: 'Always Look On The Bright Side Of Life',
+      synopsis: 'in the forest charly discovers his true self, in the meantime susan is recovering and quits her job'
     }, {
       poster: 'http://www.cap-that.com/bloodties/106/images/106_cap013.jpg',
-      title: 'Make Funny Titles For Testing Purposes'
+      title: 'Make Funny Titles For Testing Purposes',
+      synopsis: 'charly comes back and tells susan about his journey, she can\'t grasp it and looks for answers in astrology'
     }, {
       poster: 'http://www.cap-that.com/bloodties/107/images/107_cap013.jpg',
-      title: 'I Guess GOT got you hooked'
+      title: 'I Guess GOT got you hooked',
+      synopsis: 'susan understand that astrology, like all myths is a social control tool, she quits and starts reading bakunin'
     }, {
       poster: 'http://www.cap-that.com/bloodties/108/images/108_cap013.jpg',
-      title: 'It is fascism, isn\'t it ?'
+      title: 'It is fascism, isn\'t it ?',
+      synopsis: 'the comune where susan lives is being expelled by the police, in fear for her safety charly joins the rallies to protect it'
     }]
   }, {
     title: 'Season 2',
@@ -90,31 +98,39 @@ export default {
     episodes: [{
       poster: 'http://www.cap-that.com/bloodties/111/images/111_cap013.jpg',
       title: 'Words To live By',
+      synopsis: 'susan joins feminist movements and gets involved in abortion counceling',
       markers: {seen: true}
     }, {
       poster: 'http://www.cap-that.com/bloodties/112/images/112_cap013.jpg',
       title: 'The Science Of Superstitions',
+      synopsis: 'charly realizes being a cis-white makes him the oppresor and starts relativising meritocracy',
       seen: true
     }, {
       poster: 'http://www.cap-that.com/bloodties/113/images/113_cap013.jpg',
       title: 'Philosophy As A Science',
+      synopsis: 'freed from his prejudices, charly is on fire, he joins a local co-op, creates a fablab and teaches kids to code in a local slumb',
       markers: {seen: true, active: true}
     }, {
       poster: 'http://www.cap-that.com/bloodties/114/images/114_cap013.jpg',
       title: 'The Emerald Buddha',
+      synopsis: 'susan and charly meet again in a march, during the represion charly gets detained',
       markers: {seen: true}
     }, {
       poster: 'http://www.cap-that.com/bloodties/115/images/115_cap013.jpg',
-      title: 'Always Look On The Bright Side Of Life'
+      title: 'Always Look On The Bright Side Of Life',
+      synopsis: 'susan creates momentum in local comunities to free charly, soon a massive rally marches onto the court'
     }, {
       poster: 'http://www.cap-that.com/bloodties/116/images/116_cap013.jpg',
-      title: 'Make Funny Titles For Testing Purposes'
+      title: 'Make Funny Titles For Testing Purposes',
+      synopsis: 'susan creates momentum in local comunities to free charly, soon a massive rally marches to camp in front of the court'
     }, {
       poster: 'http://www.cap-that.com/bloodties/117/images/117_cap013.jpg',
-      title: 'I Guess GOT got you hooked'
+      title: 'I Guess GOT got you hooked',
+      synopsis: 'the police wages represion on the camps, inside the detention center charly organizes a revolt'
     }, {
       poster: 'http://www.cap-that.com/bloodties/118/images/118_cap013.jpg',
-      title: 'It is fascism, isn\'t it ?'
+      title: 'It is the oposite of fascism, isn\'t it ?',
+      synopsis: 'both inside and outside the revolution begins, charly and susan kiss as the courtroom burns in molotov fire'
     }]
   }]
 }
