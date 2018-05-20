@@ -74,7 +74,7 @@ const EpisodeSelector = ({episodes = []}) => (
     </ul>
 )
 
-const hashStrip = (hash) => hash.replace(/^#/,'')
+const locationToSeasonURL = ({hash}) => hash.replace(/^#/,'')
                                 .replace(/\/s[0-9]+$/, '')
 
 const SeasonSelector = ({seasons}) => (
