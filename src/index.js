@@ -1,7 +1,6 @@
 import React from 'react'
 
 import {Switch, Route} from 'react-router-dom'
-import {menuRoutes} from 'butter-component-menu'
 
 import SeasonSelector from './components/seasonselector'
 import Info from './components/info'
@@ -11,7 +10,7 @@ import style from './style.styl'
 const Identity = (props) => (props)
 
 const locationToSeasonURL = ({hash}) => hash.replace(/^#/, '')
-  .replace(/\/s[0-9]+$/, '')
+  .replace(/\/s\/[0-9]+.*/, '')
 
 class ContentDetails extends React.Component {
   componentDidMount () {
@@ -25,21 +24,36 @@ class ContentDetails extends React.Component {
     const baseUrl = locationToSeasonURL(location)
     const pathSeasons = seasons.map(
       (season, i) => Object.assign({}, props, season, {
-        goBack: Object.assign({}, props.goBack, {title: props.title}),
-        path: `${baseUrl}/s${i + 1}`
+        path: `${baseUrl}/s/${i + 1}`
       })
     )
 
     return (
       <div>
-          <div className={style.backdrop} style={{backgroundImage: `url(${backdrop})`}} />
-          <div className={style.container}>
-              <Switch>
-                  {menuRoutes(pathSeasons, Info, props)}
-                  <Route render={() => <Info {...props} />} />
-              </Switch>
-              {seasons ? <SeasonSelector seasons={pathSeasons} /> : null}
-          </div>
+        <div className={style.backdrop} style={{backgroundImage: `url(${backdrop})`}} />
+        <div className={style.container}>
+          <Switch>
+            <Route path={`${baseUrl}/s/:sid/e/:eid`} render={({match, history}) => {
+              const season = seasons[match.params.sid - 1]
+              const episode = season.episodes[match.params.eid - 1]
+              episode.goBack = {
+                title: `${props.title} - ${season.title}`
+              }
+              return (
+                <Info {...props} {...episode} />
+              )
+            }} />
+            <Route path={`${baseUrl}/s/:sid`} render={({match, history}) => {
+              const season = seasons[match.params.sid - 1]
+              season.goBack = {title: props.title}
+              return (
+                <Info {...props} {...season} />
+              )
+            }} />
+            <Route render={() => <Info {...props} />} />
+          </Switch>
+          {seasons ? <SeasonSelector seasons={pathSeasons} /> : null}
+        </div>
       </div>
     )
   }

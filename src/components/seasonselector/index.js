@@ -5,10 +5,16 @@ import {Item} from 'butter-component-list'
 
 import style from './style.styl'
 
-const EpisodeSelector = ({episodes = []}) => (
+const EpisodeSelector = ({episodes = [], path, history}) => (
   <ul className={style.episodes}>
     {episodes.map((item, idx) => (
-      <Item item={Object.assign({}, item, {title: `${idx} - ${item.title}`})} key={idx} />
+      <Item key={idx} item={Object.assign({}, item, {
+        title: `${idx} - ${item.title}`,
+        actions: {
+          show: () => history.push(`${path}/e/${idx + 1}`),
+          play: () => history.push(`${path}/e/${idx + 1}/play`)
+        }
+      })} />
     ))}
   </ul>
 )
