@@ -43,6 +43,12 @@ const PlayButtons = ({type, torrents, subtitles, actions, ...props}) => (
     </div>
 )
 
+PlayButtons.defaultProps = {
+    actions: {
+        play: () => console.log('play pressed')
+    }
+}
+
 const InfoLine = ({year, runtime, genres, rating, ...props}) => (
     <div className={style.info} className={style["infoline"]}>
         <span>
