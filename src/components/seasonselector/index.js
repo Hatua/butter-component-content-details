@@ -5,11 +5,11 @@ import {Item} from 'butter-component-list'
 
 import style from './style.styl'
 
-const EpisodeSelector = ({episodes = [], path, history}) => (
+const EpisodeSelector = ({episodes = [], path, history, ...props}) => (
   <ul className={style.episodes}>
     {episodes.map((item, idx) => (
-      <Item key={idx} item={Object.assign({}, item, {
-        title: `${idx} - ${item.title}`,
+      <Item key={idx} {...props} item={Object.assign({}, item, {
+        title: `${idx + 1} - ${item.title}`,
         actions: {
           show: () => history.push(`${path}/e/${idx + 1}`),
           play: () => history.push(`${path}/e/${idx + 1}/play`)
@@ -19,9 +19,9 @@ const EpisodeSelector = ({episodes = [], path, history}) => (
   </ul>
 )
 
-const SeasonSelector = ({seasons}) => (
+const SeasonSelector = ({seasons, ...props}) => (
   <div className={style['selector']}>
-    <RouterMenu child={EpisodeSelector} items={seasons} fallback={
+    <RouterMenu child={EpisodeSelector} {...props} items={seasons} fallback={
       <ul className={style.episodes}>
         <li>hello world</li>
       </ul>
