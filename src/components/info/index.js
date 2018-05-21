@@ -3,6 +3,7 @@ import React from 'react'
 import {Navbar, Stars} from 'butter-base-components'
 
 import InfoBar from '../navbar'
+import Synopsis from '../synopsis'
 import PlayButtons from '../playbuttons'
 
 import style from './style.styl'
@@ -23,56 +24,6 @@ const InfoLine = ({year, runtime, genres, rating, ...props}) => (
     </span>
   </div>
 )
-
-class Synopsis extends React.Component {
-  constructor (props) {
-    super(props)
-
-    this.state = {
-      expanded: false
-    }
-  }
-
-  toggleExpanded (e) {
-    e.preventDefault()
-
-    this.setState(state => ({
-      expanded: !state.expanded
-    }))
-  }
-
-  render () {
-    const {text, trimLength} = this.props
-    const {expanded} = this.state
-
-    if (text.length < trimLength) {
-      return (
-        <p className='synopsis'> {text} </p>
-      )
-    }
-
-    if (expanded) {
-      return (
-        <p className='synopsis'>
-          {text}
-          <a onClick={this.toggleExpanded.bind(this)} href='#'> LESS…</a>
-        </p>
-      )
-    }
-
-    return (
-      <p className='synopsis'>
-        {text.slice(0, trimLength)}
-        <a onClick={this.toggleExpanded.bind(this)} href='#'> MORE…</a>
-      </p>
-    )
-  }
-}
-
-Synopsis.defaultProps = {
-  text: '',
-  trimLength: 300
-}
 
 const Info = ({id, goBack, title, synopsis, overview, poster, ...props}) => ([
   <Navbar key={`detail-navbar-${id}`} type='content-nav' goBack={goBack} right={<InfoBar />} />,

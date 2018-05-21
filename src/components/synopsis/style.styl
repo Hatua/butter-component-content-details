@@ -1,0 +1,29 @@
+*[class*=synopsis] {
+    position: relative
+    font-family: var(--Font-normal);
+    font-size: calc(25% + 3vh);
+    flex: 2;
+    line-height: 3vw;
+    max-height: 10vh;
+    overflow: hidden;
+    -webkit-mask-image: linear-gradient(white 50%, transparent 90%);
+    transition: all 250ms ease-in-out;
+}
+
+*[class*=synopsis].expanded {
+    -webkit-mask-image: linear-gradient(white, white);
+}
+
+.expanded {
+    max-height: 200vh;
+}
+
+.more {
+    & a {
+        position: absolute;
+        color: #888;
+        right: 35vw;
+    }
+}
+
+
