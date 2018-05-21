@@ -12,7 +12,7 @@ const Identity = (props) => (props)
 const locationToSeasonURL = ({hash}) => hash.replace(/^#/, '')
   .replace(/\/s\/[0-9]+.*/, '')
 
-const DetailSwitch = ({seasons = [], ...props}) => {
+const DetailSwitch = ({seasons = [], isFetching, ...props}) => {
   const baseUrl = locationToSeasonURL(location)
   const pathSeasons = seasons.map(
     (season, i) => Object.assign({}, props, season, {
@@ -46,7 +46,8 @@ const DetailSwitch = ({seasons = [], ...props}) => {
         }} />
         <Route render={() => <Info {...props} />} />
       </Switch>
-      {seasons ? <SeasonSelector seasons={pathSeasons} /> : null}
+      {isFetching ? <p key='loader'>Loading</p> : null}
+      {seasons ? <SeasonSelector seasons={pathSeasons} {...props} /> : null}
     </div>
   )
 }
