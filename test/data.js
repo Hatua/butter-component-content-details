@@ -1,6 +1,6 @@
 export default {
   'imdb_id': 'tt1839578',
-  'title': 'Person of Interest',
+  'title': 'Person of Interest made very long for testing purposes because maybe a long title could break this app, this design, or the world, you never know, so prepare for the worst.',
   'year': '2010',
   'genres': [
     'thriller', 'conspiracy', 'indie'
@@ -43,7 +43,18 @@ export default {
     }
   },
   'trailer': false,
-  'synopsis': 'A veteran of the war in Iraq, and self-proclaimed American Patriot, becomes convinced that the federal government is setting him up as the fall guy in a soon-to-be terrorist attack on American soil.',
+  'synopsis': `A veteran of the war in Iraq, and self-proclaimed American Patriot, becomes convinced that the federal government is setting him up as the fall guy in a soon-to-be terrorist attack on American soil.
+
+this too is made longer for testing purposes
+
+A veteran of the war in Iraq, and self-proclaimed American Patriot, becomes convinced that the federal government is setting him up as the fall guy in a soon-to-be terrorist attack on American soil.
+
+this too is made longer for testing purposes, because we need text, and text and text.
+
+A veteran of the war in Iraq, and self-proclaimed American Patriot, becomes convinced that the federal government is setting him up as the fall guy in a soon-to-be terrorist attack on American soil.
+
+And we don't like lorem ipsums
+  `,
   'type': 'movie',
   'id': '8O3XXwsfu47svXaS',
   'provider': 'vodo',
