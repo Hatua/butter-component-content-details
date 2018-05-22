@@ -52,22 +52,10 @@ const DetailSwitch = ({seasons = [], isFetching, ...props}) => {
   )
 }
 
-class ContentDetails extends React.Component {
-  componentDidMount () {
-    const {dispatch, actions, id} = this.props
-
-    dispatch(actions.DETAIL(id))
-  }
-
-  render () {
-    const {backdrop, ...props} = this.props
-
-    return [
-      <div key='content-navbar' className={style.backdrop} style={{backgroundImage: `url(${backdrop})`}} />,
-      <DetailSwitch key={props.id} {...props} />
-    ]
-  }
-}
+const ContentDetails = ({backdrop, ...props}) => ([
+    <div key='content-navbar' className={style.backdrop} style={{backgroundImage: `url(${backdrop})`}} />,
+    <DetailSwitch key={props.id} {...props} />
+])
 
 ContentDetails.defaultProps = {
   subtitles: {none: null},
