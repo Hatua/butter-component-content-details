@@ -1,6 +1,6 @@
 import React from 'react'
 
-import {RouterMenu} from 'butter-component-menu'
+import {RouterMenu, MenuSwitch} from 'butter-component-menu'
 import {Item} from 'butter-component-list'
 
 import style from './style.styl'
@@ -19,14 +19,31 @@ const EpisodeSelector = ({episodes = [], path, history, ...props}) => (
   </ul>
 )
 
-const SeasonSelector = ({seasons, ...props}) => (
-  <div className={style['selector']}>
-    <RouterMenu child={EpisodeSelector} {...props} items={seasons} fallback={
-      <ul className={style.episodes}>
-        <li>hello world</li>
-      </ul>
-    } />
-  </div>
+const EmptySelector = () => (
+  <ul className={style.episodes}>
+    <li>hello world</li>
+  </ul>
 )
+
+const SeasonSelector = ({seasons, ...props}) => {
+  let Component
+  const componentProps = {
+    ...props,
+    items: seasons,
+    child: EpisodeSelector,
+    fallback: new EmptySelector()
+  }
+
+  if (seasons.length > 1) {
+    Component = new RouterMenu(componentProps)
+  } else {
+    Component = new MenuSwitch(componentProps)
+  }
+
+  return (
+    <div className={style['selector']}>
+      {Component}
+    </div>)
+}
 
 export {SeasonSelector as default}
