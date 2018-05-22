@@ -19,11 +19,18 @@ const PlayButton = () => (
 
 const PlayButtons = ({type, torrents, subtitles, actions, ...props}) => (
   <div className={style.playbuttons}>
-    <LegendedButton title={`Play ${type}`}><Button title={<PlayButton />} apply={actions.play} /></LegendedButton>
-    <LegendedButton title='Subtitles'><Dropdown options={Object.keys(subtitles)} /></LegendedButton>
-    <LegendedButton title='Quality'><Dropdown options={Object.keys(torrents)} /></LegendedButton>
-
-    <LegendedButton title='Streamer'><Dropdown options={['butter', 'vlc', 'mpv']} /> </LegendedButton>
+      <LegendedButton title={`Play ${type}`}>
+          <Button title={<PlayButton />} apply={actions.play} />
+      </LegendedButton>
+      <LegendedButton title='Subtitles'>
+          <Dropdown options={Object.keys(subtitles)} />
+      </LegendedButton>
+      <LegendedButton title='Quality'>
+          <Dropdown options={Object.keys(torrents)} />
+      </LegendedButton>
+      <LegendedButton title='Streamer'>
+          <Dropdown options={['butter', 'vlc', 'mpv']} />
+      </LegendedButton>
   </div>
 )
 
