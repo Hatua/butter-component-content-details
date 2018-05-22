@@ -54,9 +54,9 @@ const DetailSwitch = ({seasons = [], isFetching, ...props}) => {
 
 class ContentDetails extends React.Component {
   componentDidMount () {
-    const {dispatch, actions, ...props} = this.props
+    const {dispatch, actions, id} = this.props
 
-    dispatch(actions.DETAIL(props))
+    dispatch(actions.DETAIL(id))
   }
 
   render () {
