@@ -53,8 +53,8 @@ const DetailSwitch = ({seasons = [], isFetching, ...props}) => {
 }
 
 const ContentDetails = ({backdrop, ...props}) => ([
-    <div key='content-navbar' className={style.backdrop} style={{backgroundImage: `url(${backdrop})`}} />,
-    <DetailSwitch key={props.id} {...props} />
+  <div key='content-navbar' className={style.backdrop} style={{backgroundImage: `url(${backdrop})`}} />,
+  <DetailSwitch key={`switch-${props.id}`} {...props} />
 ])
 
 ContentDetails.defaultProps = {

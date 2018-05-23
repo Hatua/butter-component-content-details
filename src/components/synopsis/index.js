@@ -35,7 +35,7 @@ class Synopsis extends React.Component {
 }
 
 Synopsis.defaultProps = {
-  text: '',
+  text: ''
 }
 
 export {Synopsis as default}
