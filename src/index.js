@@ -44,7 +44,7 @@ const DetailSwitch = ({seasons = [], isFetching, goBack, ...props}) => {
             <Info {...props} {...season} />
           )
         }} />
-        <Route render={() => <Info {...props} />} />
+        <Route render={() => <Info {...props} goBack={goBack} />} />
       </Switch>
       {isFetching ? <p key='loader'>Loading</p> : null}
       {seasons ? <SeasonSelector seasons={pathSeasons} {...props} /> : null}
