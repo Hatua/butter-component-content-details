@@ -12,13 +12,14 @@ const Identity = (props) => (props)
 const locationToSeasonURL = ({hash}) => hash.replace(/^#/, '')
   .replace(/\/s\/[0-9]+.*/, '')
 
-const DetailSwitch = ({seasons = [], isFetching, goBack, ...props}) => {
+const DetailSwitch = ({seasons = [], isFetching, ...props}) => {
   const baseUrl = locationToSeasonURL(location)
   const pathSeasons = seasons.map(
     (season, i) => Object.assign({}, props, season, {
       path: `${baseUrl}/s/${i + 1}`
     })
   )
+  let {goBack} = props
 
   return (
     <div className={style.container}>
@@ -26,22 +27,22 @@ const DetailSwitch = ({seasons = [], isFetching, goBack, ...props}) => {
         <Route path={`${baseUrl}/s/:sid/e/:eid`} render={({match, history}) => {
           const season = seasons[match.params.sid - 1] || {episodes: []}
           const episode = season.episodes[match.params.eid - 1] || {}
-          episode.goBack = {
+          goBack = {
             title: seasons.length > 1 ? `${props.title} - ${season.title}` : goBack.title,
             action: history.goBack
           }
           return (
-            <Info {...props} {...episode} />
+            <Info {...props} {...episode} goBack={goBack} />
           )
         }} />
         <Route path={`${baseUrl}/s/:sid`} render={({match, history}) => {
           const season = seasons[match.params.sid - 1] || {}
-          season.goBack = {
+          goBack = {
             title: seasons.length > 1 ? props.title : goBack.title,
             action: history.goBack
           }
           return (
-            <Info {...props} {...season} />
+            <Info {...props} {...season} goBack={goBack} />
           )
         }} />
         <Route render={() => <Info {...props} goBack={goBack} />} />
