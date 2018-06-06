@@ -17,7 +17,7 @@ const PlayButton = () => (
   <i style={{fontSize: '2vw', margin: 'auto'}} className='material-icons'>play_arrow</i>
 )
 
-const PlayButtons = ({type, torrents, subtitles, actions, ...props}) => (
+const PlayButtons = ({type, sources, subtitles, actions, ...props}) => (
   <div className={style.playbuttons}>
     <LegendedButton title={`Play ${type}`}>
       <Button title={<PlayButton />} apply={actions.play} />
@@ -26,7 +26,7 @@ const PlayButtons = ({type, torrents, subtitles, actions, ...props}) => (
       <Dropdown options={Object.keys(subtitles)} />
     </LegendedButton>
     <LegendedButton title='Quality'>
-      <Dropdown options={Object.keys(torrents)} />
+      <Dropdown options={Object.keys(sources)} />
     </LegendedButton>
     <LegendedButton title='Streamer'>
       <Dropdown options={['butter', 'vlc', 'mpv']} />
