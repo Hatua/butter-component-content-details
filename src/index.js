@@ -12,43 +12,47 @@ const Identity = (props) => (props)
 const locationToSeasonURL = ({hash}) => hash.replace(/^#/, '')
   .replace(/\/s\/[0-9]+.*/, '')
 
-const DetailSwitch = ({seasons = [], isFetching, ...props}) => {
+const DetailSwitch = (props) => {
   const baseUrl = locationToSeasonURL(location)
+  let {goBack, seasons} = props
+
   const pathSeasons = seasons.map(
     (season, i) => Object.assign({}, props, season, {
       path: `${baseUrl}/s/${i + 1}`
     })
   )
-  let {goBack} = props
+
+  const infoProps = {
+    ...props,
+    seasons: pathSeasons
+  }
 
   return (
     <div className={style.container}>
-      <Switch>
-        <Route path={`${baseUrl}/s/:sid/e/:eid`} render={({match, history}) => {
-          const season = seasons[match.params.sid - 1] || {episodes: []}
-          const episode = season.episodes[match.params.eid - 1] || {}
-          goBack = {
-            title: seasons.length > 1 ? `${props.title} - ${season.title}` : goBack.title,
-            action: history.goBack
-          }
-          return (
-            <Info {...props} {...episode} goBack={goBack} />
-          )
-        }} />
-        <Route path={`${baseUrl}/s/:sid`} render={({match, history}) => {
-          const season = seasons[match.params.sid - 1] || {}
-          goBack = {
-            title: seasons.length > 1 ? props.title : goBack.title,
-            action: history.goBack
-          }
-          return (
-            <Info {...props} {...season} goBack={goBack} />
-          )
-        }} />
-        <Route render={() => <Info {...props} goBack={goBack} />} />
-      </Switch>
-      {isFetching ? <p key='loader'>Loading</p> : null}
-      {seasons ? <SeasonSelector seasons={pathSeasons} {...props} /> : null}
+        <Switch>
+            <Route path={`${baseUrl}/s/:sid/e/:eid`} render={({match, history}) => {
+                const season = seasons[match.params.sid - 1] || {episodes: []}
+                const episode = season.episodes[match.params.eid - 1] || {}
+                goBack = {
+                  title: seasons.length > 1 ? `${props.title} - ${season.title}` : goBack.title,
+                  action: history.goBack
+                }
+                return (
+                  <Info {...infoProps} {...episode} goBack={goBack} />
+                )
+            }} />
+            <Route path={`${baseUrl}/s/:sid`} render={({match, history}) => {
+                const season = seasons[match.params.sid - 1] || {}
+                goBack = {
+                  title: seasons.length > 1 ? props.title : goBack.title,
+                  action: history.goBack
+                }
+                return (
+                  <Info {...infoProps} {...season} goBack={goBack} />
+                )
+            }} />
+            <Route render={() => <Info {...infoProps} goBack={goBack} />} />
+        </Switch>
     </div>
   )
 }

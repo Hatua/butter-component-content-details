@@ -24,7 +24,7 @@ export default {
       url: 'http://blah.srt/'
     }
   },
-  'torrents': {
+  'sources': {
     '720p': {
       'url': 'http://vodo.net/media/torrents/h/Person.of.Interest.2010.720p.x264-VODO.mp4.torrent',
       'size': 147,

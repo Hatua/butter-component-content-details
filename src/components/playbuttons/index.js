@@ -35,6 +35,9 @@ const PlayButtons = ({type, sources, subtitles, actions, ...props}) => (
 )
 
 PlayButtons.defaultProps = {
+  type: 'content',
+  sources: {},
+  subtitles: {},
   actions: {
     play: () => console.log('play pressed')
   }
