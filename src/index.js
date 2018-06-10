@@ -2,7 +2,6 @@ import React from 'react'
 
 import {Switch, Route} from 'react-router-dom'
 
-import SeasonSelector from './components/seasonselector'
 import Info from './components/info'
 
 import style from './style.styl'
@@ -14,7 +13,7 @@ const locationToSeasonURL = ({hash}) => hash.replace(/^#/, '')
 
 const DetailSwitch = (props) => {
   const baseUrl = locationToSeasonURL(location)
-  let {goBack, seasons} = props
+  let {goBack, seasons = []} = props
 
   const pathSeasons = seasons.map(
     (season, i) => Object.assign({}, props, season, {

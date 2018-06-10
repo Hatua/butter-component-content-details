@@ -40,8 +40,10 @@ const Info = ({id, isFetching, seasons, goBack, title, synopsis, overview, poste
             </div>
         </div>
         <div className={style.scrollInfo}>
+
             <Synopsis text={overview || synopsis} />
             <PlayButtons {...props} />
+
             {isFetching ? <p key='loader'>Loading</p> : null}
             {seasons ? <SeasonSelector seasons={seasons} {...props} /> : null}
         </div>

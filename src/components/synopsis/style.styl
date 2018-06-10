@@ -1,32 +1,31 @@
 *[class*=synopsis] {
     position: relative;
-    padding-right: 40vw;
+    padding: 5px 4vw 10vh;
     font-family: var(--Font-normal);
-    font-size: calc(25% + 3vh);
+    font-size: 2vmin;
     flex: 2;
-    line-height: 3vw;
-    max-height: 10vh;
-    overflow: hidden;
-    -webkit-mask-image: linear-gradient(white 50%, transparent 90%);
-    transition: all 250ms ease-in-out;
+    line-height: 5vmin;
+    min-height: 100%;
 }
 
-*[class*=synopsis].expanded {
-    -webkit-mask-image: linear-gradient(white, white);
-}
-
-.expanded {
-    max-height: 200vh;
+.moreButton {
+    color: #888;
+    margin-left: auto;
+    padding-right: 40vw;
 }
 
 .more {
-    a {
-        color: #888;
-    }
+    flex: 1 1 auto;
+    overflow: hidden;
+    min-height: 10vh;
+    width: calc(100% - 40vw);
+    -webkit-mask-image: linear-gradient(transparent, white 10px, white calc(90% - 10vh), transparent 90%);
 
-    & > a {
-        position: absolute;
-        right: 45vw;
+    transition: all 250ms ease-in-out;
+
+    &.expanded {
+        flex: 1 0 content;
+        -webkit-mask-image: linear-gradient(transparent, white 10px, white calc (100% - 1px), transparent 100%);
     }
 }
 

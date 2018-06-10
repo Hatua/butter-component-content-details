@@ -1,9 +1,16 @@
 .scrollInfo {
-    padding: 0 4vw 4vw 4vw;
+    position: relative;
     flex: 1;
-    overflow-y: scroll;
+    overflow-y: auto;
     overflow-x: hidden;
     width: 100vw;
+    display: flex;
+    flex-direction: column;
+
+    &:first-child {
+        flex: 1;
+    }
+
 }
 
 .detail {
@@ -14,10 +21,10 @@
 }
 
 .detailFixed {
+    position: relative;
     z-index: 10;
     width: 99vw;
     display: flex;
-    flex: 0;
 
     .cover {
         height: 0;
