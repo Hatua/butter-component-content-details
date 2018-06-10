@@ -5,7 +5,7 @@ import {Item} from 'butter-component-list'
 
 import style from './style.styl'
 
-const EpisodeSelector = ({episodes = [], path, history, ...props}) => (
+const EpisodeSelector = ({episodes = [], markers, path, history, ...props}) => (
   <ul className={style.episodes}>
     {episodes.map((item, idx) => (
       <Item key={idx} {...props} item={Object.assign({}, item, {

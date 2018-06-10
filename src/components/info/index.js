@@ -26,9 +26,12 @@ const InfoLine = ({year, runtime, genres, rating, ...props}) => (
   </div>
 )
 
-const Info = ({id, isFetching, seasons, goBack, title, synopsis, overview, poster, ...props}) => {
+const Info = ({isFetching, seasons, goBack, title, synopsis, overview, poster, ...props}) => {
+  const {id, actions, markers} = props
+
   return ([
-    <Navbar key={`detail-navbar-${id}`} type='content-nav' goBack={goBack} right={<InfoBar />} />,
+    <Navbar key={`detail-navbar-${id}`} type='content-nav' goBack={goBack}
+            right={<InfoBar {...{id, actions, markers}}/>} />,
     <div key={`details-${id}`} className={style.detail}>
         <div className={style.detailFixed}>
             <div className={style.info}>
