@@ -21,11 +21,6 @@ const DetailSwitch = (props) => {
     })
   )
 
-  const infoProps = {
-    ...props,
-    seasons: pathSeasons
-  }
-
   return (
     <div className={style.container}>
         <Switch>
@@ -37,7 +32,7 @@ const DetailSwitch = (props) => {
                   action: history.goBack
                 }
                 return (
-                  <Info {...infoProps} {...episode} goBack={goBack} />
+                  <Info {...props} {...episode} seasons={pathSeasons} goBack={goBack} />
                 )
             }} />
             <Route path={`${baseUrl}/s/:sid`} render={({match, history}) => {
@@ -47,10 +42,10 @@ const DetailSwitch = (props) => {
                   action: history.goBack
                 }
                 return (
-                  <Info {...infoProps} {...season} goBack={goBack} />
+                  <Info {...props} {...season} seasons={pathSeasons} goBack={goBack} />
                 )
             }} />
-            <Route render={() => <Info {...infoProps} goBack={goBack} />} />
+            <Route render={() => <Info {...infoProps} seasons={pathSeasons} goBack={goBack} />} />
         </Switch>
     </div>
   )
