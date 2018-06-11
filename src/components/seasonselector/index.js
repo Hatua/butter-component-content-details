@@ -7,21 +7,24 @@ import style from './style.styl'
 
 const EpisodeSelector = ({episodes = [], markers, path, history, ...props}) => (
   <ul className={style.episodes}>
-    {episodes.map((item, idx) => (
-      <Item key={idx} {...props} item={Object.assign({}, item, {
-        title: `${idx + 1} - ${item.title}`,
-        actions: {
-          show: () => history.push(`${path}/e/${idx + 1}`),
-          play: () => history.push(`${path}/e/${idx + 1}/play`)
-        }
-      })} />
-    ))}
+      {episodes.map(({order, title, ...episode}) => {
+         const item = Object.assign({}, episode, {
+           title: `${order} - ${title}`,
+         })
+
+         const actions = {
+           show: () => history.push(`${path}/e/${order}`),
+           play: () => history.push(`${path}/e/${order}/play`)
+         }
+
+         return <Item key={order} {...props} item={item} actions={actions}/>
+      })}
   </ul>
 )
 
 const EmptySelector = () => (
   <ul className={style.episodes}>
-    <li>hello world</li>
+      <li>hello world</li>
   </ul>
 )
 
@@ -42,7 +45,7 @@ const SeasonSelector = ({seasons, ...props}) => {
 
   return (
     <div className={style['selector']}>
-      {Component}
+        {Component}
     </div>)
 }
 
