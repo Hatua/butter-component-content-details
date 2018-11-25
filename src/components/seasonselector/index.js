@@ -23,9 +23,7 @@ const EpisodeSelector = ({episodes = [], markers, path, history, ...props}) => (
 )
 
 const EmptySelector = () => (
-  <ul className={style.episodes}>
-      <li>hello world</li>
-  </ul>
+  <ul className={style.episodes}/>
 )
 
 const SeasonSelector = ({seasons, ...props}) => {
